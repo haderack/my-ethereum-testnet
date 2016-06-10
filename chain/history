@@ -1,0 +1,159 @@
+help
+ls
+command
+account
+geth
+eth.
+eth.accounts
+eth.blockNumber
+eth.gasPrice
+personal.newAccount("test1pass")
+eth.accounts
+primary = eth.accounts[0];
+balance = web3.fromWei(eth.getBalance(primary), "ether");
+miner.start(8);
+admin.sleepBlocks(10);
+miner.stop()  ;
+balance = web3.fromWei(eth.getBalance(primary), "ether");
+txpool.status
+eth.getBlockTransactionCount("pending");
+eth.getBlock("pending", true).transactions
+txhash = eth.sendTansaction({from:primary, data: code})
+personal.newAccount("test2pass")
+eth.sendTransaction({from: '0x1f876dbcb5862c899039a7541a73f88fba1c7934', to: '0x8083537014e0cba379c8a637aac6696904829ee7', value: web3.toWei(1, "ether")})
+txpool.status
+miner.start(1);
+admin.sleepBlocks(1);
+miner.stop()  ;
+eth.getBlockTransactionCount("pending");
+balance = web3.fromWei(eth.getBalance(primary), "ether");
+balance = web3.fromWei(eth.getBalance("0x8083537014e0cba379c8a637aac6696904829ee7"), "ether");
+eth.getBlockTransactionCount("pending");
+eth.sendTransaction({from: '0x1f876dbcb5862c899039a7541a73f88fba1c7934', to: '0x8083537014e0cba379c8a637aac6696904829ee7', value: web3.toWei(1, "ether")})
+eth.getBlockTransactionCount("pending");
+miner.start(1);
+admin.sleepBlocks(1);
+miner.stop()  ;
+balance = web3.fromWei(eth.getBalance("0x8083537014e0cba379c8a637aac6696904829ee7"), "ether");
+eth.accounts
+checkAllBalances()
+checkAllBalances();
+eth.compile.solidity("")
+eth.compile.solidity
+eth.compile.solidity("")
+eth.getCompilers()
+eth.accounts
+ls
+personal.newAccount("test3pass")
+eth.accounts
+personal.newAccount("test4pass")
+eth.accounts
+
+eth.accounts
+ls
+eth.accounts
+admin.setSolc("/usr/local/bin/solc")
+eth.getCompilers()
+var greeterSource = 'contract mortal { address owner; function mortal() { owner = msg.sender; } function kill() { if (msg.sender == owner) suicide(owner); } } contract greeter is mortal { string greeting; function greeter(string _greeting) public { greeting = _greeting; } function greet() constant returns (string) { return greeting; } }'
+var greeterCompiled = web3.eth.compile.solidity(greeterSource)
+var _greeting = "Hello World!"
+var greeterContract = web3.eth.contract(greeterCompiled.greeter.info.abiDefinition);
+var greeter = greeterContract.new(_greeting,{from:web3.eth.accounts[0], data: greeterCompiled.greeter.code, gas: 100}, function(e, contract){if(!e) {if(!contract.address) {console.log("Contract transaction send: TransactionHash: " + contract.transactionHash + " waiting to be mined...");} else {console.log("Contract mined! Address: " + contract.address);console.log(contract);}}})
+eth.getPendingTransactions()
+eth.getBlock("pending", true).transactions
+source = "contract test { function multiply(uint a) returns(uint d) { return a * 7; } }"
+contract = eth.compile.solidity(source).test
+{
+  code: '605280600c6000396000f3006000357c010000000000000000000000000000000000000000000000000000000090048063c6888fa114602e57005b60376004356041565b8060005260206000f35b6000600782029050604d565b91905056',
+  info: {
+    language: 'Solidity',
+    languageVersion: '0',
+    compilerVersion: '0.9.13',
+    abiDefinition: [{
+      constant: false,
+      inputs: [{
+        name: 'a',
+        type: 'uint256'
+      } ],
+      name: 'multiply',
+      outputs: [{
+        name: 'd',
+        type: 'uint256'
+      } ],
+      type: 'function'
+    } ],
+    userDoc: {
+      methods: {
+      }
+    },
+    developerDoc: {
+      methods: {
+      }
+    },
+    source: 'contract test { function multiply(uint a) returns(uint d) { return a * 7; } }'
+  }
+}
+contract = eth.compile.solidity(source).test{code: '605280600c6000396000f3006000357c010000000000000000000000000000000000000000000000000000000090048063c6888fa114602e57005b60376004356041565b8060005260206000f35b6000600782029050604d565b91905056',info: {language: 'Solidity',languageVersion: '0',compilerVersion: '0.9.13',abiDefinition: [{constant: false,inputs: [{name: 'a',type: 'uint256'} ],name: 'multiply',outputs: [{name: 'd',type: 'uint256'} ],type: 'function'} ],userDoc: {methods: {}},developerDoc: {methods: {}},source: 'contract test { function multiply(uint a) returns(uint d) { return a * 7; } }'}}
+contract = eth.compile.solidity(source).test
+{
+  code: '605280600c6000396000f3006000357c010000000000000000000000000000000000000000000000000000000090048063c6888fa114602e57005b60376004356041565b8060005260206000f35b6000600782029050604d565b91905056',
+  info: {
+    language: 'Solidity',
+    languageVersion: '0',
+    compilerVersion: '0.9.13',
+    abiDefinition: [{
+      constant: false,
+      inputs: [{
+        name: 'a',
+        type: 'uint256'
+      } ],
+      name: 'multiply',
+      outputs: [{
+        name: 'd',
+        type: 'uint256'
+      } ],
+      type: 'function'
+    } ],
+    userDoc: {
+      methods: {
+      }
+    },
+    developerDoc: {
+      methods: {
+      }
+    },
+    source: 'contract test { function multiply(uint a) returns(uint d) { return a * 7; } }'
+  }
+}
+var greeter = greeterContract.new(_greeting,{from:web3.eth.accounts[0], data: greeterCompiled.greeter.code, gas: 1000000}, function(e, contract){
+  if(!e) {
+    if(!contract.address) {
+      console.log("Contract transaction send: TransactionHash: " + contract.transactionHash + " waiting to be mined...");
+    } else {
+      console.log("Contract mined! Address: " + contract.address);
+      console.log(contract);
+    }
+  }
+})
+eth.getCode(greeter.address)
+var greeterSource = 'contract mortal { address owner; function mortal() { owner = msg.sender; } function kill() { if (msg.sender == owner) suicide(owner); } } contract greeter is mortal { string greeting; function greeter(string _greeting) public { greeting = _greeting; } function greet() constant returns (string) { return greeting; } }'
+var greeterCompiled = web3.eth.compile.solidity(greeterSource)
+var _greeting = "Hello World!"
+var greeterContract = web3.eth.contract(greeterCompiled.greeter.info.abiDefinition);
+var greeter = greeterContract.new(_greeting,{from:web3.eth.accounts[0], data: greeterCompiled.greeter.code, gas: 1000000}, function(e, contract){
+  if(!e) {
+    if(!contract.address) {
+      console.log("Contract transaction send: TransactionHash: " + contract.transactionHash + " waiting to be mined...");
+    } else {
+      console.log("Contract mined! Address: " + contract.address);
+      console.log(contract);
+    }
+  }
+})
+greeter.greet();
+var greeterSource = 'contract mortal { address owner; function mortal() 
+{ owner = msg.sender; } function kill() { if (msg.sender == owner) suicide(owner); } }
+var greeterSource = 'contract mortal { address owner; function mortal() { owner = msg.sender; } function kill() { if (msg.sender == owner) suicide(owner); } } contract greeter is mortal { string greeting; function greeter(string _greeting) public { greeting = _greeting; } function greet() constant returns (string) { return greeting; } }'
+ls
+console.log(greeterSource)
+txpool.status

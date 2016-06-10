@@ -1,0 +1,9 @@
+=============== Jun 8, 2016 (PDT) ===============
+16:17:46.604180 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+16:17:46.604261 db@open opening
+16:17:46.604295 journal@recovery F·1
+16:17:46.605991 journal@recovery recovering @4
+16:17:46.608598 db@janitor F·2 G·0
+16:17:46.608615 db@open done T·4.348582ms
+16:21:24.743260 db@close closing
+16:21:24.743538 db@close done T·271.1µs
