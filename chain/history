@@ -157,3 +157,36 @@ var greeterSource = 'contract mortal { address owner; function mortal() { owner 
 ls
 console.log(greeterSource)
 txpool.status
+eth.accounts
+miner.start(1);
+admin.sleepBlocks(1);
+miner.stop()  ;miner.stop()
+miner.start(1);
+admin.sleepBlocks(1);
+miner.stop()
+miner.start(1);
+admin.sleepBlocks(1);
+miner.stop()  ;miner.stop()
+miner.start(1);
+admin.sleepBlocks(1);
+miner.stop()  ;miner.stop()
+miner.start(1);
+admin.sleepBlocks(1);
+miner.stop()  ;miner.stop()
+miner.start(1);
+admin.sleepBlocks(1);
+miner.stop()  ;miner.stop()
+admin.peers
+admin.nodeInfo
+eth.pendingTransactions
+admin.peers
+admin.addPeer("enode://b9787854c5e27fc16437f15337aa10bfadaaf48d063c90556d77e5ccbf4477074e951ea0adf9925200f52d751544ebbd53dcba01a69cd549264981d23a23c081@[::]:30303?discport=0")
+admin.peers
+admin.addPeer("enode://b9787854c5e27fc16437f15337aa10bfadaaf48d063c90556d77e5ccbf4477074e951ea0adf9925200f52d751544ebbd53dcba01a69cd549264981d23a23c081@[::]:30303")
+admin.peers
+admin.addPeer("enode://b9787854c5e27fc16437f15337aa10bfadaaf48d063c90556d77e5ccbf4477074e951ea0adf9925200f52d751544ebbd53dcba01a69cd549264981d23a23c081@10.108.16.104:30303")asdfasdf
+admin.nodeInfo
+admin.peers
+eth.defaultAccount
+eth.coinbase
+eth.getBalance(eth.coinbase)
