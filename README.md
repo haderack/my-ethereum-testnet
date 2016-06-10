@@ -9,8 +9,8 @@
 > eth.sendTransaction({from: '0x1f876dbcb5862c899039a7541a73f88fba1c7934', to: '0x8083537014e0cba379c8a637aac6696904829ee7', value: web3.toWei(1, "ether")})
 
 # Create Deploy contract
-> source = "contract test { function multiply(uint a) returns(uint d) { return a * 7; } }"
-> var compiledMultiply7 = web3.eth.compile.solidity(source)
+source = "contract test { function multiply(uint a) returns(uint d) { return a * 7; } }"
+var compiledMultiply7 = web3.eth.compile.solidity(source)
 > eth.compile.solidity(source).test
 > primaryAddress = eth.accounts[0]
 > MyMultiply7Contract = eth.contract(compiledMultiply7.info.abiDefinition)
