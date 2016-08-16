@@ -190,3 +190,6 @@ admin.peers
 eth.defaultAccount
 eth.coinbase
 eth.getBalance(eth.coinbase)
+eth.accounts
+admin.nodeInfo
+admin.peers
