@@ -25,3 +25,8 @@ $ miner.start(1)<br />
 $ admin.sleepBlocks(1)<br />
 $ miner.stop()<br />
 $ multiply7Contract.multiply.call(2)<br />
+
+
+# Introspect a geth node container
+1. docker exec <docker_image_id> bash
+2. geth attach ipc://root/.ethereum/devchain/geth.ipc
