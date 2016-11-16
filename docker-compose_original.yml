@@ -13,14 +13,36 @@ services:
       - "30303:30303"
       - "30303:30303/udp"
       - "8545:8545"
+  geth:
+    build: geth-client
+    restart: on-failure
+    links:
+      - bootstrap
+    entrypoint: /root/start.sh
+    volumes: 
+      - ./files/genesis.json:/root/files/genesis.json:ro
+      - ./files/keystore:/root/.ethereum/devchain/keystore:rw
+      - /etc/localtime:/etc/localtime:ro
+    command: --datadir=~/.ethereum/devchain --rpccorsdomain='*' --networkid=984035 --rpc init=/root/files/genesis.json --bootnodes='enode://288b97262895b1c7ec61cf314c2e2004407d0a5dc77566877aad1f2a36659c8b698f4b56fd06c4a0c0bf007b4cfb3e7122d907da3b005fa90e724441902eb19e@172.17.0.3:30303'
+  miner:
+    build: geth-client
+    restart: on-failure
+    links:
+      - bootstrap
+    entrypoint: /root/start.sh
+    volumes: 
+      - ./files/genesis.json:/root/files/genesis.json:ro
+      - ./files/keystore:/root/.ethereum/devchain/keystore:rw
+      - /etc/localtime:/etc/localtime:ro
+    command: --datadir=~/.ethereum/devchain --rpccorsdomain='*' --networkid=984035 --rpc init=/root/files/genesis.json --bootnodes='enode://288b97262895b1c7ec61cf314c2e2004407d0a5dc77566877aad1f2a36659c8b698f4b56fd06c4a0c0bf007b4cfb3e7122d907da3b005fa90e724441902eb19e@172.17.0.3:30303' --mine --minerthreads=1 --etherbase=0x007ccffb7916f37f7aeef05e8096ecfbe55afc2f
   ui:
     build: ui-client
     restart: on-failure
     links:
       - bootstrap
     entrypoint: /root/start.sh
-    volumes:
-      - ./ui:/root/ui:rw
+    volumes: 
+	  - ./ui:/root/ui:rw
       - ./files/genesis.json:/root/files/genesis.json:ro
       - ./files/keystore:/root/.ethereum/devchain/keystore:rw
       - /etc/localtime:/etc/localtime:ro

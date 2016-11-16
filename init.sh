@@ -1,1 +1,0 @@
-../go-ethereum/src/github.com/migueltorreslopez/go-ethereum/build/bin/geth --datadir "/Users/mtorres/dev/incubator/ethereum/my-ethereum-testnet/chain" init CustomGenesis.json
