@@ -1,3 +1,3 @@
 #!/bin/bash
 /usr/bin/geth $@ &
-node /root/ui/server.js
+#node /node_modules/ui/server.js
