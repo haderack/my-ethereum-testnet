@@ -1,3 +1,3 @@
 #!/bin/bash
-/usr/bin/geth $@ &
-#node /node_modules/ui/server.js
+/etc/init.d/nginx start &
+/usr/bin/geth $@
