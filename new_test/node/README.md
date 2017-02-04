@@ -9,3 +9,6 @@ cd apps
 truffle compile
 truffle migrate
 
+# To send ether
+eth.sendTransaction({from:eth.coinbase, to:"0x9c622bd1a7c5312284a1e680e88362daf00c004f", value: web3.toWei(0.0005, "ether")})
+
