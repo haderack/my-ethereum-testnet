@@ -11,6 +11,6 @@ RUN \
   
 ADD . /ethereum_node  
 
-EXPOSE 30303
+EXPOSE 30304
 
 ENTRYPOINT ["/ethereum_node/start.sh"]
