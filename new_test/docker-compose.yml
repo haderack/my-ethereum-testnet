@@ -1,4 +1,4 @@
-version: '3'
+version: '3.0'
 services:
    bootnode:
       build:
@@ -7,6 +7,39 @@ services:
       networks:
          app_net:
             ipv4_address: 172.16.238.10
+      ports:
+         - "30301:30301/udp"
+   node:
+      build:
+        context: ./node
+      image: node:latest
+      stdin_open: true
+      tty: true
+      ports:
+         - "8545:8545"
+         - "30303:30303/udp"
+      networks:
+         - app_net
+   miner:
+      build:
+         context: ./miner
+      image: miner:latest
+      stdin_open: true
+      tty: true
+      ports:
+         - "30304:30304/udp"
+      networks:
+         - app_net
+   miner2:
+      build:
+         context: ./miner2
+      image: miner2:latest
+      stdin_open: true
+      tty: true
+      ports:
+         - "30305:30305/udp"
+      networks:
+         - app_net
 networks:
   app_net:
     driver: bridge
