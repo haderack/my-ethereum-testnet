@@ -14,6 +14,6 @@ RUN \
   apk add --update bash && \
   rm -rf /go-ethereum && rm -rf /var/cache/apk/*
   
-ADD . /ethereum_node
+ADD . /ethereum_node  
 
 ENTRYPOINT ["/ethereum_node/start.sh"]

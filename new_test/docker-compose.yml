@@ -8,6 +8,7 @@ services:
          app_net:
             ipv4_address: 172.16.238.10
       ports:
+         - "30301:30301"
          - "30301:30301/udp"
    node:
       build:
@@ -17,6 +18,18 @@ services:
       tty: true
       ports:
          - "8545:8545"
+         - "30302:30302"
+         - "30302:30302/udp"
+      networks:
+         - app_net
+   node2:
+      build:
+        context: ./node2
+      image: node2:latest
+      stdin_open: true
+      tty: true
+      ports:
+         - "30303:30303"
          - "30303:30303/udp"
       networks:
          - app_net
@@ -27,6 +40,7 @@ services:
       stdin_open: true
       tty: true
       ports:
+         - "30304:30304"
          - "30304:30304/udp"
       networks:
          - app_net
@@ -37,6 +51,7 @@ services:
       stdin_open: true
       tty: true
       ports:
+         - "30305:30305"
          - "30305:30305/udp"
       networks:
          - app_net
