@@ -1,2 +1,2 @@
 #!/bin/bash
-../bootnode --nodekey=/ethereum_node/boot.key
+/ethereum_node/common/bootnode --nodekey=/ethereum_node/boot.key

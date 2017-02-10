@@ -9,6 +9,7 @@ RUN \
   apk upgrade && \
   apk add nodejs && \
   apk add go git make gcc musl-dev && \
+  rm /ethereum_node/go-ethereum/src/github.com/ethereum/go-ethereum/.git && \
   (cd /ethereum_node/go-ethereum/src/github.com/ethereum/go-ethereum && make geth) && \
   cp /ethereum_node/go-ethereum/src/github.com/ethereum/go-ethereum/build/bin/geth /ethereum_node/common/geth && \
   apk add --update python python-dev  py-pip  build-base && \
