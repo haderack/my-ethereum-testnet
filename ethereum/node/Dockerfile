@@ -5,7 +5,7 @@ RUN \
   apk upgrade && \
   apk add nodejs && \
   apk add go git make gcc musl-dev && \
-  git clone --depth 1 --branch v1.5.8 https://github.com/ethereum/go-ethereum && \
+  git clone --depth 1 --branch nbt https://github.com/torresashjian/go-ethereum && \
   (cd go-ethereum && make geth) && \
   cp go-ethereum/build/bin/geth /geth && \
   apk add --update python python-dev  py-pip  build-base && \
